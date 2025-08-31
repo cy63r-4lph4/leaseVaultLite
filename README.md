@@ -77,7 +77,7 @@ Copy code
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR_HANDLE/LeaseVaultLite.git
+   git clone https://github.com/cy63r-4lph4/leaseVaultLite.git
    cd LeaseVaultLite
    Install dependencies:
    ```
@@ -97,6 +97,7 @@ bash
 Copy code
 cd frontend
 npm run dev
+
 🎯 Roadmap
 MVP: Profile + Listings + Leases + Receipts.
 
@@ -123,3 +124,6 @@ Contract Addreses
 easeVaultLiteModule#Alph4Core - 0xe093E6E7F3dCC8605252c9fC9E6911A7D85D3809
 LeaseVaultLiteModule#ProfileSystem - 0x710A01A2c45dC5b9f27Be530a1b1D973238D3808
 LeaseVaultLiteModule#LeaseVault - 0x8b1f27B16FA8a592e724590F7055883AA92457A2
+
+Frontend Url
+https://lease-vault-lite.vercel.app/
