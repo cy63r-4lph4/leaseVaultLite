@@ -1,0 +1,3 @@
+export const TOKEN_ADDRESS = "0xe093E6E7F3dCC8605252c9fC9E6911A7D85D3809";
+export const TOKEN_SYMBOL = "CØRE";
+export const TOKEN_DECIMALS = 18;
