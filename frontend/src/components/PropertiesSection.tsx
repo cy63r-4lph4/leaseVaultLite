@@ -16,7 +16,7 @@ const mockProperties = [
     beds: 2,
     baths: 2,
     sqft: 1200,
-    image: "/placeholder.svg",
+    image: "/images/property0.jpeg",
     status: "available" as const,
   },
   {
@@ -27,7 +27,7 @@ const mockProperties = [
     beds: 3,
     baths: 3,
     sqft: 1800,
-    image: "/placeholder.svg",
+    image: "/images/property1.jpeg",
     status: "available" as const,
   },
   {
@@ -38,7 +38,7 @@ const mockProperties = [
     beds: 4,
     baths: 4,
     sqft: 2800,
-    image: "/placeholder.svg",
+    image: "/images/property2.jpeg",
     status: "pending" as const,
   },
   {
@@ -49,7 +49,7 @@ const mockProperties = [
     beds: 2,
     baths: 2,
     sqft: 1400,
-    image: "/placeholder.svg",
+    image: "/images/property3.jpeg",
     status: "available" as const,
   },
   {
@@ -60,7 +60,7 @@ const mockProperties = [
     beds: 5,
     baths: 4,
     sqft: 3200,
-    image: "/placeholder.svg",
+    image: "/images/property4.jpeg",
     status: "leased" as const,
   },
   {
@@ -71,7 +71,7 @@ const mockProperties = [
     beds: 1,
     baths: 1,
     sqft: 650,
-    image: "/placeholder.svg",
+    image: "/images/property5.jpeg",
     status: "available" as const,
   },
 ];

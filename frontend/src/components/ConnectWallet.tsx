@@ -7,6 +7,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { motion } from "framer-motion";
 import { useTokenBalance } from "@/hooks/useTokenBalance";
 import { TOKEN_ADDRESS, TOKEN_DECIMALS, TOKEN_SYMBOL } from "@/lib/Constants";
+import { useGetProfileStatus } from "@/hooks/useProfileRegistry";
 
 export const CustomConnectButton = () => {
   const { formattedBalance } = useTokenBalance(
@@ -27,6 +28,8 @@ export const CustomConnectButton = () => {
       }) => {
         const ready = mounted;
         const connected = ready && account && chain;
+
+        const { checking, exists } = useGetProfileStatus();
 
         if (!connected) {
           return (
@@ -62,10 +65,21 @@ export const CustomConnectButton = () => {
             >
               <Wallet className="w-4 h-4 text-primary" />
               <span className="font-medium">{account.displayName}</span>
+
+              {/* Balance */}
               {formattedBalance && (
                 <span className="text-muted-foreground text-sm">
                   {formattedBalance}
                 </span>
+              )}
+
+              {/* Profile status indicator */}
+              {checking ? (
+                <span className="text-xs text-yellow-500 ml-2">⏳ Profile...</span>
+              ) : exists ? (
+                <span className="text-xs text-green-600 ml-2">✅ Profile</span>
+              ) : (
+                <span className="text-xs text-red-500 ml-2">⚠️ No Profile</span>
               )}
             </div>
           </div>

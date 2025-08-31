@@ -25,9 +25,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-card/80 backdrop-blur-glass border border-border/50 rounded-full mb-8">
             <Shield className="w-4 h-4 text-accent mr-2" />
-            <span className="text-sm font-medium">
-              Powered by CØRE
-            </span>
+            <span className="text-sm font-medium">Powered by CØRE</span>
           </div>
 
           {/* Main Heading */}
@@ -130,7 +128,9 @@ const FeatureCard = ({
   bg: string;
 }) => (
   <div className="text-center">
-    <div className={`w-16 h-16 ${bg} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+    <div
+      className={`w-16 h-16 ${bg} rounded-2xl flex items-center justify-center mx-auto mb-4`}
+    >
       {icon}
     </div>
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
