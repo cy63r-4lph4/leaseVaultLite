@@ -27,3 +27,29 @@ export interface PropertyFormProps {
   uploading: boolean;
   address?: string;
 }
+
+export type Amenity = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  text: string;
+};
+
+export type Landlord = {
+  name: string;
+  initials: string;
+  role: string;
+};
+
+export type Property = {
+  id: string;
+  title: string;
+  location: string;
+  price: number;
+  beds: number;
+  baths: number;
+  sqft: number;
+  status: string;
+  description: string;
+  images: Record<string, string[]>;
+  amenities: Amenity[];
+  landlord: Landlord;
+};

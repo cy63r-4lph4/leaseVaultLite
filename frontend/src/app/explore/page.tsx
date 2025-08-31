@@ -29,77 +29,77 @@ const mockProperties = [
     id: 1,
     title: "Modern Downtown Loft",
     location: "Downtown Core, Singapore",
-    price: 2500,
+    price: 600,
     beds: 2,
     baths: 2,
     sqft: 1200,
-    image: "/placeholder.svg",
+    image: "/images/property6.jpeg",
     status: "available" as const,
   },
   {
     id: 2,
     title: "Luxury Marina Apartment",
     location: "Marina Bay, Singapore",
-    price: 4200,
+    price: 200,
     beds: 3,
     baths: 3,
     sqft: 1800,
-    image: "/placeholder.svg",
+    image: "/images/property5.jpeg",
     status: "available" as const,
   },
   {
     id: 3,
     title: "Penthouse with City Views",
     location: "Orchard Road, Singapore",
-    price: 8500,
+    price: 300,
     beds: 4,
     baths: 4,
     sqft: 2800,
-    image: "/placeholder.svg",
+    image: "/images/property15.jpeg",
     status: "pending" as const,
   },
   {
     id: 4,
     title: "Smart Home Condo",
     location: "Sentosa Island, Singapore",
-    price: 3200,
+    price: 400,
     beds: 2,
     baths: 2,
     sqft: 1400,
-    image: "/placeholder.svg",
+    image: "/images/kitchen1.jpeg",
     status: "available" as const,
   },
   {
     id: 5,
     title: "Garden Villa Estate",
     location: "Bukit Timah, Singapore",
-    price: 6500,
+    price: 600,
     beds: 5,
     baths: 4,
     sqft: 3200,
-    image: "/placeholder.svg",
+    image: "/images/property3.jpeg",
     status: "leased" as const,
   },
   {
     id: 6,
     title: "Tech-Enabled Studio",
     location: "Clarke Quay, Singapore",
-    price: 1800,
+    price: 800,
     beds: 1,
     baths: 1,
     sqft: 650,
-    image: "/placeholder.svg",
+    image: "/images/compound2.jpeg",
     status: "available" as const,
   },
   {
     id: 7,
     title: "Waterfront Condominium",
     location: "East Coast, Singapore",
-    price: 3800,
+    price: 300,
     beds: 3,
     baths: 2,
     sqft: 1600,
-    image: "/placeholder.svg",
+    image: "/images/property1.jpeg",
     status: "available" as const,
   },
   {
@@ -110,7 +110,7 @@ const mockProperties = [
     beds: 2,
     baths: 2,
     sqft: 1500,
-    image: "/placeholder.svg",
+    image: "/images/compound3.jpeg",
     status: "available" as const,
   },
 ];
@@ -118,7 +118,7 @@ const mockProperties = [
 const Explore = () => {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [searchTerm, setSearchTerm] = useState("");
-  const [priceRange, setPriceRange] = useState([1000, 10000]);
+  const [priceRange, setPriceRange] = useState([10, 10000]);
   const [selectedLocation, setSelectedLocation] = useState("all");
   const [selectedBeds, setSelectedBeds] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
@@ -211,7 +211,7 @@ const Explore = () => {
                         value={priceRange}
                         onValueChange={setPriceRange}
                         max={10000}
-                        min={1000}
+                        min={10}
                         step={100}
                         className="mb-3"
                       />
@@ -293,7 +293,7 @@ const Explore = () => {
                     className="w-full"
                     onClick={() => {
                       setSearchTerm("");
-                      setPriceRange([1000, 10000]);
+                      setPriceRange([10, 10000]);
                       setSelectedLocation("all");
                       setSelectedBeds("all");
                       setSelectedStatus("all");

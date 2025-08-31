@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +20,7 @@ import {
   Globe,
   Save,
 } from "lucide-react";
+import WalletManagement from "@/components/WalletManagement";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -217,56 +218,7 @@ const Profile = () => {
             </TabsContent>
 
             <TabsContent value="wallet" className="space-y-6">
-              <Card className="bg-card/80 backdrop-blur-glass border-border/50">
-                <CardHeader>
-                  <div className="flex items-center space-x-2">
-                    <Wallet className="w-5 h-5" />
-                    <CardTitle>Wallet Management</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="bg-gradient-primary/10 rounded-lg p-4 border border-accent/20">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm text-muted-foreground">
-                        Current Balance
-                      </span>
-                      <Badge
-                        variant="outline"
-                        className="border-accent text-accent"
-                      >
-                        Active
-                      </Badge>
-                    </div>
-                    <div className="text-2xl font-bold text-accent">
-                      12,450 CØRE
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      ≈ $2,490 USD
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Button className="bg-gradient-primary hover:opacity-90">
-                      Top Up Wallet
-                    </Button>
-                    <Button variant="outline">Withdraw Funds</Button>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label>Wallet Address</Label>
-                    <div className="flex space-x-2">
-                      <Input
-                        value="0x742d35Cc47C8C9D1C2B2...8A3F"
-                        readOnly
-                        className="font-mono text-sm"
-                      />
-                      <Button variant="outline" size="sm">
-                        Copy
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <WalletManagement />
             </TabsContent>
 
             <TabsContent value="notifications" className="space-y-6">
