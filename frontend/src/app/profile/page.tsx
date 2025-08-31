@@ -11,13 +11,11 @@ import { Switch } from "@/components/ui/switch";
 import Navigation from "@/components/Navigation";
 import {
   User,
-  Wallet,
   Shield,
   Bell,
   Camera,
   Key,
   Smartphone,
-  Globe,
   Save,
 } from "lucide-react";
 import WalletManagement from "@/components/WalletManagement";

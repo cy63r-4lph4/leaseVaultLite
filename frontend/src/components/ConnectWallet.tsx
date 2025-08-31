@@ -15,6 +15,7 @@ export const CustomConnectButton = () => {
     TOKEN_DECIMALS,
     TOKEN_SYMBOL
   );
+  const { checking, exists } = useGetProfileStatus();
 
   return (
     <ConnectButton.Custom>
@@ -25,11 +26,20 @@ export const CustomConnectButton = () => {
         openAccountModal,
         openChainModal,
         mounted,
+      }: {
+        account: {
+          displayName: string;
+        } | null;
+        chain: {
+          name: string;
+        } | null;
+        openConnectModal: () => void;
+        openAccountModal: () => void;
+        openChainModal: () => void;
+        mounted: boolean;
       }) => {
         const ready = mounted;
         const connected = ready && account && chain;
-
-        const { checking, exists } = useGetProfileStatus();
 
         if (!connected) {
           return (
@@ -75,7 +85,9 @@ export const CustomConnectButton = () => {
 
               {/* Profile status indicator */}
               {checking ? (
-                <span className="text-xs text-yellow-500 ml-2">⏳ Profile...</span>
+                <span className="text-xs text-yellow-500 ml-2">
+                  ⏳ Profile...
+                </span>
               ) : exists ? (
                 <span className="text-xs text-green-600 ml-2">✅ Profile</span>
               ) : (

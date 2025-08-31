@@ -6,9 +6,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-import { PropertyImage } from "@/lib/Interfaces";
+import { PropertyFormData, PropertyImage } from "@/lib/Interfaces";
 
-export function buildFormPayload(formData: any, images: PropertyImage[], address?: string) {
+export function buildFormPayload(formData: PropertyFormData, images: PropertyImage[], address?: string) {
   const formPayload = new FormData();
   Object.entries(formData).forEach(([key, value]) => {
     formPayload.append(key, value as string);

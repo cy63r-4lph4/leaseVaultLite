@@ -54,7 +54,7 @@ export function useGetProfileStatus() {
         } else {
           setProfile(data.profile);
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error("Profile creation cancelled:", err);
         disconnect(); 
       } finally {

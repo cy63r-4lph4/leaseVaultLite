@@ -10,19 +10,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import PropertyCard from "@/components/PropertyCard";
 import Navigation from "@/components/Navigation";
-import {
-  Search,
-  Filter,
-  MapPin,
-  Grid,
-  List,
-  SlidersHorizontal,
-} from "lucide-react";
+import { Search, MapPin, Grid, List, SlidersHorizontal } from "lucide-react";
 
 const mockProperties = [
   {

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { MapPin, Bed, Bath, Square, Coins } from "lucide-react";
+import Image from "next/image";
 
 interface PropertyCardProps {
   id: string;
@@ -49,7 +50,7 @@ const PropertyCard = ({
   return (
     <Card className="group overflow-hidden bg-card/80 backdrop-blur-glass border-border/50 hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
       <div className="relative">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"

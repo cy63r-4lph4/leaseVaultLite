@@ -11,7 +11,14 @@ const PROFILE_SYSTEM_ADDRESS = process.env.PROFILE_SYSTEM_ADDRESS!;
 
 export async function POST(req: Request) {
   try {
-    const { address, role, metadataCID, signature } = await req.json();
+    const body: {
+      address?: string;
+      role?: number;
+      metadataCID?: string;
+      signature?: string;
+    } = await req.json();
+
+    const { address, role, metadataCID, signature } = body;
 
     if (!address || role === undefined || !metadataCID || !signature) {
       return NextResponse.json({ error: "Missing params" }, { status: 400 });
@@ -27,11 +34,7 @@ export async function POST(req: Request) {
     const provider = new ethers.JsonRpcProvider(RPC_URL);
     const wallet = new ethers.Wallet(RELAYER_PRIVATE_KEY, provider);
 
-    const contract = new ethers.Contract(
-      PROFILE_SYSTEM_ADDRESS,
-      abi,
-      wallet
-    );
+    const contract = new ethers.Contract(PROFILE_SYSTEM_ADDRESS, abi, wallet);
 
     try {
       const tx = await contract.createProfile(address, role, metadataCID);
@@ -41,31 +44,32 @@ export async function POST(req: Request) {
         success: true,
         txHash: receipt.transactionHash,
       });
-    } catch (err: any) {
-      const msg = err?.reason || err?.error?.message || err?.message || "Unknown error";
+    } catch (err) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Unknown contract error";
 
-      if (msg.includes("Profile already exists")) {
+      if (errorMessage.includes("Profile already exists")) {
         return NextResponse.json(
           { success: false, error: "Profile already exists" },
           { status: 409 }
         );
       }
 
-      if (msg.includes("Not enough tokens in ProfileSystem")) {
+      if (errorMessage.includes("Not enough tokens in ProfileSystem")) {
         return NextResponse.json(
           { success: false, error: "Insufficient airdrop tokens in contract" },
           { status: 402 }
         );
       }
 
-      // fallback for other contract errors
-      return NextResponse.json({ error: msg }, { status: 500 });
+      return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
-  } catch (err: any) {
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Server error";
     console.error("Unexpected server error:", err);
-    return NextResponse.json(
-      { error: err?.message || "Server error" },
-      { status: 500 }
-    );
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

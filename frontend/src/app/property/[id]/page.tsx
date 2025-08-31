@@ -3,9 +3,8 @@
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
 import {
   MapPin,
@@ -14,11 +13,8 @@ import {
   Square,
   Coins,
   ArrowLeft,
-  Heart,
-  Share2,
   ChevronLeft,
   ChevronRight,
-  Maximize2,
   Wifi,
   Car,
   TreePine,
@@ -27,6 +23,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Property } from "@/lib/Interfaces";
+import Image from "next/image";
 
 // Mock property data
 const mockProperties: Record<string, Property> = {
@@ -188,7 +185,7 @@ const PropertyDetails = () => {
             {/* Image Gallery */}
             <div>
               <div className="relative rounded-2xl overflow-hidden mb-4 group">
-                <img
+                <Image
                   src={currentImages[currentImageIndex] || "/placeholder.svg"}
                   alt={`${property.title} - ${selectedImageCategory}`}
                   className="w-full h-96 object-cover cursor-pointer transition-transform group-hover:scale-105"
@@ -242,7 +239,7 @@ const PropertyDetails = () => {
                 </TabsList>
                 <div className="grid grid-cols-4 gap-2">
                   {currentImages.map((image, idx) => (
-                    <img
+                    <Image
                       key={idx}
                       src={image}
                       alt={`${selectedImageCategory} ${idx + 1}`}
@@ -327,7 +324,7 @@ const PropertyDetails = () => {
             className="relative max-w-4xl max-h-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <img
+            <Image
               src={currentImages[currentImageIndex]}
               alt={`${property.title} - ${selectedImageCategory}`}
               className="max-w-full max-h-full object-contain"

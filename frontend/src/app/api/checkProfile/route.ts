@@ -1,3 +1,4 @@
+// app/api/checkProfile/route.ts
 import { NextResponse } from "next/server";
 import { ethers } from "ethers";
 import artifact from "@/lib/ProfileSystemAbi.json";
@@ -37,8 +38,10 @@ export async function GET(req: Request) {
         metadataCID: profile.metadataCID,
       },
     });
-  } catch (err: any) {
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error";
     console.error("checkProfile error:", err);
-    return NextResponse.json({ error: err.message }, { status: 500 });
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
+

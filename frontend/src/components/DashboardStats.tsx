@@ -7,7 +7,6 @@ import { useAccount } from "wagmi";
 import { TOKEN_ADDRESS, TOKEN_DECIMALS, TOKEN_SYMBOL } from "@/lib/Constants";
 
 const DashboardStats = () => {
-  const { address } = useAccount();
   const { formattedBalance, isLoading } = useTokenBalance(
     TOKEN_ADDRESS as `0x${string}`,
     TOKEN_DECIMALS,

@@ -1,4 +1,4 @@
-import type { FormEvent } from 'react';
+import type { FormEvent } from "react";
 
 export type Profile = {
   user: string;
@@ -13,17 +13,31 @@ export interface PropertyImage {
   url: string;
   category: string;
 }
+
 export interface Props {
   images: PropertyImage[];
   setImages: React.Dispatch<React.SetStateAction<PropertyImage[]>>;
 }
 
+export interface PropertyFormData {
+  title: string;
+  description: string;
+  rentAmount: string;
+  depositAmount: string;
+  userAddress: string;
+  location?: string;
+  beds?: string;
+  baths?: string;
+  sqft?: string;
+  propertyType?: string;
+}
+
 export interface PropertyFormProps {
-  formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  formData: PropertyFormData;
+  setFormData: React.Dispatch<React.SetStateAction<PropertyFormData>>;
   images: PropertyImage[];
   setImages: React.Dispatch<React.SetStateAction<PropertyImage[]>>;
-  handleSubmit: (e: FormEvent) => void;
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   uploading: boolean;
   address?: string;
 }

@@ -19,8 +19,9 @@ import {
   TreePine,
   Car,
 } from "lucide-react";
-import { PropertyImage, Props } from "@/lib/Interfaces";
+import { Props } from "@/lib/Interfaces";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import Image from "next/image";
 
 const imageCategories = [
   { value: "exterior", label: "Exterior", icon: Home },
@@ -63,10 +64,10 @@ export default function ImageUploader({ images, setImages }: Props) {
   const getImagesByCategory = (category: string) => {
     return images.filter((img) => img.category === category);
   };
-  const getCategoryIcon = (category: string) => {
-    const categoryData = imageCategories.find((cat) => cat.value === category);
-    return categoryData?.icon || Camera;
-  };
+//   const getCategoryIcon = (category: string) => {
+//     const categoryData = imageCategories.find((cat) => cat.value === category);
+//     return categoryData?.icon || Camera;
+//   };
 
   return (
     <Card>
@@ -117,7 +118,7 @@ export default function ImageUploader({ images, setImages }: Props) {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {categoryImages.map((image) => (
                       <div key={image.id} className="relative group">
-                        <img
+                        <Image
                           src={image.url}
                           alt="Property"
                           className="w-full h-32 object-cover rounded-lg border"
