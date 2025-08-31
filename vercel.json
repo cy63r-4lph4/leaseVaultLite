@@ -1,21 +1,10 @@
 {
   "version": 2,
+  "root": "frontend",
   "builds": [
     {
-      "src": "frontend/package.json",
+      "src": "package.json",
       "use": "@vercel/next"
-    }
-  ],
-  "env": {
-    "NEXT_PUBLIC_PROJECT_NAME": "LeaseVault Lite",
-    "NEXT_PUBLIC_CORE_TOKEN": "0xYourCoreTokenAddress",
-    "NEXT_PUBLIC_RPC_URL": "https://rpc.testnet.lisk.com" 
-  },
-  "ignoreCommand": "echo 'Skipping contracts and other non-frontend folders'",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/$1"
     }
   ]
 }
