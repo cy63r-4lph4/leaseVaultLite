@@ -56,9 +56,6 @@ Filecoin + Synapse (off-chain images, docs)
 ↕
 CØRE Token (faucet + trust layer)
 
-yaml
-Copy code
-
 ---
 
 ## 🚀 Features
@@ -82,19 +79,14 @@ Copy code
    Install dependencies:
    ```
 
-bash
-Copy code
 cd contracts && npm install
 cd ../frontend && npm install
+
 Deploy contracts (Hardhat):
 
-bash
-Copy code
 npx hardhat run scripts/deploy.js --network testnet
 Run frontend (Next.js):
 
-bash
-Copy code
 cd frontend
 npm run dev
 
